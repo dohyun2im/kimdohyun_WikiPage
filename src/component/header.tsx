@@ -67,7 +67,7 @@ const CustomHeader = () => {
                     mode='horizontal'
                     items={menuInstance}
                     onClick={onMenuClick}
-                    style={{ backgroundColor: 'white', border: 'none' }}
+                    style={{ width: 250, backgroundColor: 'white', border: 'none' }}
                 />
             </Row>
 

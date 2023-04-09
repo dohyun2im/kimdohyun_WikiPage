@@ -30,6 +30,7 @@ const MainList = () => {
             <List
                 itemLayout="vertical"
                 size="small"
+                style={{ width: '50vw' }}
                 pagination={{
                     position: 'bottom',
                     align: 'start',
@@ -37,19 +38,20 @@ const MainList = () => {
                 }}
                 dataSource={wiki}
                 renderItem={(item:Wikis) => (
-                <List.Item
-                    key={item.key}
-                    actions={[
-                    <IconText icon={StarOutlined} text={item.key} key="list-vertical-star-o" />,
-                    <IconText icon={LikeOutlined} text={item.key} key="list-vertical-like-o" />,
-                    <IconText icon={MessageOutlined} text={item.key} key="list-vertical-message" />,
-                    ]}
-                >
-                    <List.Item.Meta
-                    avatar={<Avatar src={item.avatar} />}
-                    title={<Link to={`/wiki/detail/${item.key}`}>{item.title}</Link>}
-                    />
-                </List.Item>
+                    <List.Item
+                        key={item.key}
+                        style={{ borderBottom: '1.5px solid #eee'}}
+                        actions={[
+                        <IconText icon={StarOutlined} text={item.key} key="list-vertical-star-o" />,
+                        <IconText icon={LikeOutlined} text={item.key} key="list-vertical-like-o" />,
+                        <IconText icon={MessageOutlined} text={item.key} key="list-vertical-message" />,
+                        ]}
+                    >
+                        <List.Item.Meta
+                            avatar={<Avatar src={item.avatar} />}
+                            title={<Link to={`/wiki/detail/${item.key}`}>{item.title}</Link>}
+                        />
+                    </List.Item>
                 )}
             />          
         </div>

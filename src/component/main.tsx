@@ -11,7 +11,9 @@ const Main = () => {
                   <MainCarousel />     
                 </Col>
                 <Col span={24}>
-                    <MainList />
+                    <Row justify='center'>
+                         <MainList />
+                    </Row>    
                 </Col>
             </Row>
         </div>
