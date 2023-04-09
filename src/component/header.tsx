@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, Avatar, Row, Button, Input } from "antd";
 import { HomeTwoTone, BulbTwoTone } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,10 +35,6 @@ const CustomHeader = () => {
         navigate(e.key);
     }, [navigate]);
 
-    const homeClick = useCallback(():void => {
-        navigate('/');
-    }, [navigate]);
-
     const handleLogOut = useCallback(():void => {
         dispatch(userLogout());      
     },[dispatch]);
@@ -62,9 +58,11 @@ const CustomHeader = () => {
                     size={50} 
                     src="https://ih1.redbubble.net/image.438018541.2151/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" 
                 />
-                <h2 onClick={homeClick} className="header-title">
-                    CODING HUB
-                </h2>          
+                <Link to='/' style={{ color: 'black' }}>
+                    <h2 className="header-title">
+                        CODING HUB
+                    </h2>  
+                </Link>        
                 <Menu
                     mode='horizontal'
                     items={menuInstance}
@@ -72,8 +70,9 @@ const CustomHeader = () => {
                     style={{ backgroundColor: 'white', border: 'none' }}
                 />
             </Row>
+
             <Row align='middle'>
-                <Input.Search style={{ width: 150, marginRight: 5 }} />
+                <Input.Search style={{ marginLeft:60, width: 150, marginRight: 10 }} />
                 { name === '' ? 
                     (
                         <>
@@ -89,8 +88,9 @@ const CustomHeader = () => {
                     )
                 }
             </Row>
+
         </Row>
     )
 }
 
-export default React.memo(CustomHeader);
+export default CustomHeader;

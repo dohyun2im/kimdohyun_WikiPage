@@ -35,6 +35,7 @@ const WikiDetail = () => {
             </Row>
 
             <WikiModal lastWiki={wiki?.length} wikiUpdate={filteredWiki} />
+            
             <div 
                 className='wiki-detail-content' 
                 dangerouslySetInnerHTML={{ __html: filteredWiki.content.replace(/\n/g, '<br />') }}

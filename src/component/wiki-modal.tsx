@@ -16,7 +16,7 @@ const WikiModal = (prop:Props) => {
   const [modalForm] = Form.useForm();
   const dispatch = useDispatch();
 
-  const showModal = () => {
+  const showModal = ():void => {
     setIsModalOpen(true);
   };
 
@@ -39,13 +39,16 @@ const WikiModal = (prop:Props) => {
     setIsModalOpen(false);
   };
 
-  const handleCancel = () => {
+  const handleCancel = ():void => {
     setIsModalOpen(false);
   };
 
   return (
     <>
-      <Button icon={<EditOutlined />} onClick={showModal}>{wikiUpdate ? '수정':'글 추가'}</Button>
+      <Button icon={<EditOutlined />} onClick={showModal}>
+        {wikiUpdate ? '수정':'글 추가'}
+      </Button>
+      
       <Modal 
         title={wikiUpdate ? '위키 수정하기':'위키 작성하기'}
         open={isModalOpen} 
@@ -80,7 +83,10 @@ const WikiModal = (prop:Props) => {
             >
                 <TextArea rows={5} placeholder={wikiUpdate ? wikiUpdate.content : null}/>
             </Form.Item>
-            <Button block type='primary' htmlType='submit'>{wikiUpdate ? '수정':'등록'}</Button>
+
+            <Button block type='primary' htmlType='submit'>
+              {wikiUpdate ? '수정':'등록'}
+            </Button>
         </Form>
       </Modal>
     </>

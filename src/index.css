@@ -41,6 +41,11 @@ a:hover{
   text-align: center;
   align-items: center;
 }
+.carousel-img{
+  max-width: 600px;
+  object-fit: contain;
+}
+
 .content1{
   background: rgb(49, 93, 127);
 }

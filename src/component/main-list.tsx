@@ -8,6 +8,7 @@ import WikiModal from './wiki-modal';
 
 const MainList = () => {
     const wiki = useSelector((state:any) => state.wiki.wikiColumns);
+    
     const IconText = ({ icon, text }: { icon: React.FC; text: number }) => (
         <Space>
           {React.createElement(icon)}

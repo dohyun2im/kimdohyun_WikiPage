@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Carousel } from 'antd';
+import MediaQuery from "react-responsive";
 
 interface CarouselData {
     key: number;
@@ -24,6 +25,7 @@ const MainCarousel = () => {
             url: 'https://images.velog.io/images/dbfudgudals/post/9232ad70-81d0-41e7-99b9-fdb373c5dec4/image.png',
         },
     ];
+
     return (
         <Carousel draggable autoplay autoplaySpeed={6000}>
             {mockData.map((data:CarouselData) => {
@@ -31,11 +33,13 @@ const MainCarousel = () => {
                     <div className={`carousel-content content${data.key}`} key={data.key}>
                         <Row justify='space-between' align='top'>
                             <h1 className='carousel-header'>{data.content}</h1>
-                            <img 
-                                style={{ maxWidth: '600px', objectFit: 'contain'}}
-                                src={data.url} 
-                                alt='carousel' 
-                            />
+                            <MediaQuery minWidth={1000}>
+                                <img
+                                    className='carousel-img'
+                                    src={data.url} 
+                                    alt='carousel' 
+                                />
+                            </MediaQuery>                           
                         </Row>       
                     </div>
                 )

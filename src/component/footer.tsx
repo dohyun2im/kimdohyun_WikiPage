@@ -25,6 +25,7 @@ const CustomFooter = () => {
             >
             ©2023 Created by Dohyun Kim
             </div>
+            
             <div>
                 <Popover title='문의사항을 남기세요 !' content={content}>
                     <img 

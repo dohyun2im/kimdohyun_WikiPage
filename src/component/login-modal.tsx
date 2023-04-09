@@ -17,7 +17,7 @@ const LoginModal = () => {
         setOpen(false);
     }
 
-    const handleLogin = (values: any):void => {
+    const handleLogin = (values: {id:string, password:string}):void => {
         dispatch(userLogin(values.id));
         setOpen(false);
         messageApi
@@ -31,7 +31,7 @@ const LoginModal = () => {
     return(
         <>
             {contextHolder}
-            <Button style={{ marginRight: 5 }} onClick={handleOpen}>로그인</Button>
+            <Button style={{ marginRight: 10 }} onClick={handleOpen}>로그인</Button>
             <Modal
                 open={open}
                 style={{ padding: 0 }}
