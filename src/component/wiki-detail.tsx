@@ -29,7 +29,7 @@ const WikiDetail = () => {
                 </div>
             }
             
-            <Row className='wiki-detail-header' align='middle'>
+            <Row className='wiki-detail-header' align='middle' style={{ width: '50vw' }}>
                 <Avatar size={80} src={filteredWiki.avatar} style={{ border: '2px solid lightgray'}}/>
                 <h1>{filteredWiki.title}</h1>
             </Row>
