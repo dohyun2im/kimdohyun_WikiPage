@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import CustomHeader from './component/header';
+import { Layout, Row } from 'antd';
+import { Content } from 'antd/es/layout/layout';
+import CustomFooter from './component/footer';
+import loadable from '@loadable/component';
 
-function App() {
+const Main = loadable(() => import('./component/main'));
+const Wiki = loadable(() => import('./component/wiki'));
+const WikiDetail = loadable(() => import('./component/wiki-detail'));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Layout>
+        <CustomHeader />
+        <Content 
+          style={{
+            backgroundColor: 'white',
+          }}>
+          <Row style={{ height: '90vh' }} justify='center'>
+            <Routes>
+                <Route path='/' element={<Main />} />
+                <Route path='/wiki' element={<Wiki />} />
+                <Route path='/wiki/detail/:id' element={<WikiDetail />} />
+            </Routes>
+          </Row>
+        </Content>
+        <CustomFooter />
+      </Layout>
+    </>
   );
 }
 

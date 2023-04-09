@@ -1,13 +1,123 @@
+@font-face {
+  font-family: 'KorailRoundGothicBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KorailRoundGothicBold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+a{
+  color: black;
+}
+a:hover{
+  color: black;
+}
+.ant-list-item{
+  padding: 0px !important;
+  margin-top: 3px;
+}
+.next-prev{
+  width: 300px;
+  height: 80px;
+  padding-left: 20px;
+  padding-top: 1px;
+  color: black !important;
+  background-color: #ff7a45;
+  border-radius: 12px;
+}
+.next-prev-header{
+  font-family: 'KorailRoundGothicBold';
+  color: white;
+}
+.next-prev-header .anticon:hover{
+  transform: scale(1.5);
+}
+.next-prev-title{
+  color: lightgrey;
+}
+.carousel-content{
+  width: 100%;
+  height: 300px;
+  color: '#fff';
+  line-height: 160px;
+  text-align: center;
+  align-items: center;
+}
+.content1{
+  background: rgb(49, 93, 127);
+}
+.content2{
+  background: rgb(252, 223, 125);
+}
+.content3{
+  background: rgb(240, 201, 128);
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+.wiki-top{
+  background-color: #ff7a45;
+  width: 100vw;
+  height: 20vh;
+  letter-spacing: 1px;
+}
+.wiki-top-header{
+  color: white;
+  margin: 0;
+  padding: 0;
+  margin-left: 65px;
+}
+.header{
+  font-family: 'KorailRoundGothicBold';
+}
+.carousel-header{
+  font-family: 'KorailRoundGothicBold';
+  color: white;
+  padding: 0;
+  margin-top: 70px;
+  margin-left: 20px;
+}
+.header-title{
+  font-family: 'KorailRoundGothicBold';
+  margin-left: 8px;
+  margin-right: 12px;
+  color: black;
+}
+.bot-img{
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  border-radius: 50%;
+}
+.header_img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.wiki-detail-content{
+  width: 50vw;
+  height: 47vh;
+  padding: 10px;
+  overflow-y: auto;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+.wiki-detail-header{
+  margin: 10px;
+  border-bottom: 3px solid lightgray;
+}
+.wiki-detail-header h1 {
+  font-size: 30px;
+  margin-left: 5px;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
