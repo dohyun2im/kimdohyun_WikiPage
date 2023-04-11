@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, Form, Input } from 'antd';
+import { Modal, Button, Form, Input, message } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import { addWiki, updateWiki } from '../store/wiki-slice';
 import { useDispatch } from 'react-redux';
@@ -13,6 +13,7 @@ interface Props {
 const WikiModal = (prop:Props) => {
   const { lastWiki, wikiUpdate } = prop;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
   const [modalForm] = Form.useForm();
   const dispatch = useDispatch();
 
@@ -21,6 +22,15 @@ const WikiModal = (prop:Props) => {
   };
 
   const handleOk = (e:any):void => {
+    if (e.title?.trim() === '' || e.title === null || e.title === undefined || 
+        e.content?.trim() === '' || e.content === undefined || e.content === null){
+      messageApi.open({
+        type: 'error',
+        content: '제목이나 글을 작성 해주세요.',
+        duration: 3,
+      });
+      return;
+    }
     if (wikiUpdate) {
       dispatch(updateWiki(
         wikiUpdate.key,
@@ -36,7 +46,13 @@ const WikiModal = (prop:Props) => {
         `https://joesch.moe/api/v1/random?key=${lastWiki+1}`,
         e.content,
     ));
+    messageApi.open({
+      type: 'success',
+      content: wikiUpdate? '수정 되었습니다.' : '작성 되었습니다.',
+      duration: 3,
+    });
     setIsModalOpen(false);
+    modalForm.resetFields();
   };
 
   const handleCancel = ():void => {
@@ -45,6 +61,7 @@ const WikiModal = (prop:Props) => {
 
   return (
     <>
+      {contextHolder}
       <Button icon={<EditOutlined />} onClick={showModal}>
         {wikiUpdate ? '수정':'글 추가'}
       </Button>

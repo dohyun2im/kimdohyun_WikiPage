@@ -18,14 +18,24 @@ const LoginModal = () => {
     }
 
     const handleLogin = (values: {id:string, password:string}):void => {
-        dispatch(userLogin(values.id));
-        setOpen(false);
-        messageApi
-            .open({
-                type: 'success',
-                content: ' 로그인 되었습니다.',
+        if(values.id?.trim() === '' || values.password?.trim() === '' ||
+           values.id === undefined || values.id === null || 
+           values.password === undefined || values.password === null) {
+            messageApi.open({
+                type: 'error',
+                content: ' 아이디와 비밀번호를 확인하세요.',
                 duration: 3,
             });
+            return;
+        };
+        dispatch(userLogin(values.id));
+        setOpen(false);
+        messageApi.open({
+            type: 'success',
+            content: ' 로그인 되었습니다.',
+            duration: 3,
+        });
+        loginForm.resetFields();
     };
 
     return(

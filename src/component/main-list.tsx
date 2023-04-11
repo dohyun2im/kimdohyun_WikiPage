@@ -42,9 +42,9 @@ const MainList = () => {
                         key={item.key}
                         style={{ borderBottom: '1.5px solid #eee'}}
                         actions={[
-                        <IconText icon={StarOutlined} text={item.key} key="list-vertical-star-o" />,
-                        <IconText icon={LikeOutlined} text={item.key} key="list-vertical-like-o" />,
-                        <IconText icon={MessageOutlined} text={item.key} key="list-vertical-message" />,
+                        <IconText icon={StarOutlined} text={0} key="list-vertical-star-o" />,
+                        <IconText icon={LikeOutlined} text={0} key="list-vertical-like-o" />,
+                        <IconText icon={MessageOutlined} text={0} key="list-vertical-message" />,
                         ]}
                     >
                         <List.Item.Meta
